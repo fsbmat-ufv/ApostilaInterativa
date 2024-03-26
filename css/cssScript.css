@@ -1,0 +1,100 @@
+/******
+Construido por Fernando Bastos
+*******/
+  
+  body {
+    background-color: #ffffff;
+  }
+
+em {
+  color: blue;
+}
+
+.ace-tm {
+  background-color: #ffffff;
+    color: black;
+}
+
+.panel, pre {
+  border-radius: 0;
+  border-color: #e0e0e0;
+    background-color: #ffffff;
+}
+
+.panel-default > .panel-heading {
+  color: #555555;
+    background-color: #ffffff;
+    border-color: #dddddd;
+}
+
+.topicsList .topic {
+  line-height: 40px;
+  font-size: 15px;
+  padding-left: 10px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 2px 80px;
+  background-position: left 100%;
+  background-position-y: 100%;
+  border-bottom: 1px solid blue;
+  -webkit-transition-property: background-position;
+  transition-property: background-position;
+  -webkit-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+}
+
+.topicsList .topic.current {
+  background-color: skyblue;
+  color: #ffffff;
+    border: 0px;
+}
+
+code {
+  color: gray;
+  background-color: #eee1fc;
+    font-size: 12px;
+}
+
+a {
+  color: green;
+  text-decoration: none;
+}
+
+.btn-primary, .btn-success, .btn-info {
+  color: #ffffff;
+    background-color: red;
+  background-image: none;
+  border: none;
+}
+
+.btn-default {
+  color: #ffffff;
+    background-color: red;
+  background-image: none;
+  border: none;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bolder;
+    color: #4f5954;
+
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: bolder;
+    color: #848a87;
+}
+
+h3,h4 {
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: #990000;
+}
+
+h5 {
+  color: skyblue;
+  background-color: white;
+  display: inline-block;
+}
