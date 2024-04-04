@@ -85,7 +85,7 @@ Apresente a tela inicial do RStudio
 
 <p style="text-align: justify;">
 O RStudio Cloud é uma plataforma baseada na web que oferece um ambiente integrado para programação em R. Ele permite aos usuários acessar e executar projetos em R diretamente do navegador, eliminando a necessidade de instalação e configuração do software R e do ambiente RStudio em um computador local.
-
+</p>
 Para utilizar o RStudio Cloud, siga estes passos:
 
 1 - Acesse o site do RStudio Cloud (https://rstudio.cloud/) e crie uma conta gratuita.
@@ -104,7 +104,7 @@ Para utilizar o RStudio Cloud, siga estes passos:
 O RStudio Cloud é útil para aqueles que desejam aprender R, ensinar R em sala de aula, colaborar em projetos com outras pessoas ou simplesmente para quem precisa de acesso rápido a um ambiente R sem a necessidade de configurar um ambiente local. Além disso, ele oferece uma maneira conveniente de compartilhar análises e colaborar com colegas de equipe ou alunos, já que os projetos podem ser facilmente compartilhados via link.
 </p>
 
-## 1.4 Preliminares
+## Preliminares
 
 <p style="text-align: justify;">
 O software R é um conjunto integrado de recursos para leitura e manipulação de dados, cálculos e exibição gráfica. O R é um programa baseado em linhas de comando. Isto é, o usuário cria uma linha de código através de uma sequência de palavras e números. Ao digitar a linha no console, o R interpreta e executa a ação codificada na linha. Também é possível informar para R, um conjunto de linhas de
@@ -186,16 +186,15 @@ Vetor é a estrutura mais simples que uma variável pode assumir, e somente pode
 </p>
 ```{r three, exercise=TRUE}
 a <- c(1,2,3)
+a
 ```
 
-
+<!--
 Chunk 1: {r plot-first, echo = FALSE}
 Chunk 2: {r ref.label = 'three', eval = FALSE}
-
+-->
 <p style="text-align: justify;">
-A variável `a` será automaticamente definida pelo R como um vetor numérico.
-O principal atributo de uma estrutura do tipo vetor é o comprimento. O vetor `a`, por exemplo, é um
-vetor de comprimento um, ou seja, contém apenas um elemento. Isto pode ser comprovado através
+A variável `a` será automaticamente definida pelo R como um vetor numérico. O principal atributo de uma estrutura do tipo vetor é o comprimento. O vetor `a`, por exemplo, é um vetor de comprimento um, ou seja, contém apenas um elemento. Isto pode ser comprovado através
 do seguinte comando:
 </p>
 ```{r four, exercise=TRUE}
@@ -212,6 +211,25 @@ E a separação de coluna é "," (vírgula).
 </p>
 
 Vetores no R são os objetos mais simples que podem guardar objetos atômicos.
+
+---
+
+Em linguagem R, "objetos atômicos" referem-se a objetos que não podem ser divididos em partes menores mais simples. Esses objetos são os blocos de construção fundamentais dos dados em R e incluem os seguintes tipos:
+
+1 - **Números:** Representam valores numéricos, como inteiros ou números de ponto flutuante.
+
+2 - **Caracteres (Strings):** Sequências de caracteres alfanuméricos, geralmente representadas entre aspas simples ou duplas.
+
+3 - **Lógicos (Booleanos):** Representam valores lógicos verdadeiro (TRUE) ou falso (FALSE).
+
+4 - **Complexos:** Representam números complexos com uma parte real e uma parte imaginária.
+
+5 - **Raw:** Representam dados brutos em bytes.
+
+Esses tipos de objetos são considerados "atômicos" porque não podem ser decompostos em partes menores que mantenham o mesmo tipo de dado. Em contraste, os objetos compostos, como listas e data frames, podem conter uma combinação de objetos atômicos e outros objetos compostos.
+
+---
+
 
 ```{r five, exercise=TRUE}
 vetor1 <- c(1, 2, 3, 4)
@@ -262,8 +280,6 @@ Neste caso, o R irá alinhar os dois vetores e multiplicar elemento por elemento
 </p>
 ```{r ten, exercise=TRUE}
 vetor1 <- c(1, 2, 3, 4)
-vetor2 <- c("a", "b", "c")
-
 vetor2 <- 1:3
 vetor1 * vetor2
 ```
@@ -337,22 +353,17 @@ Para controlar a execução de certos códigos, deve-se usar as estruturas de
 controle. Com elas, é possível que se repita algum comando de acordo com algumas decisões tomadas.
 </p>
 
+### if-else
+
 <p style="text-align: justify;">
-Observe que após o `if` está estabelecida a primeira condição, ou seja, que o 
-horário esteja compreendido entre 6 e 12 horas. Se o valor atribuído para `h` 
-estiver compreendido dentro deste intervalo, então lhe será retornado uma 
-mensagem de `Bom dia!`. De modo análogo, se `h` estiver compreendido entre 
-12 e 18 horas ou entre 18 e 23 horas, lhe será retornado uma mensagem de 
-`Boa tarde` e `Boa noite`, respectivamente. 
+O comando if-else em R é uma estrutura de controle condicional que permite executar diferentes blocos de código com base em uma condição lógica. Se a condição especificada for verdadeira, o bloco de código dentro do if é executado; caso contrário, o bloco de código dentro do else é executado. Após o `if` está estabelecida a primeira condição, ou seja, que o horário esteja compreendido entre 6 e 12 horas. Se o valor atribuído para `h` estiver compreendido dentro deste intervalo, então lhe será retornado uma mensagem de `Bom dia!`. De modo análogo, se `h` estiver compreendido entre 12 e 18 horas ou entre 18 e 23 horas, lhe será retornado uma mensagem de `Boa tarde` e `Boa noite`, respectivamente. 
 </p>
 
 <p style="text-align: justify;">
-Por fim, se o horário fornecido não estiver dentro de nenhum intervalo 
-mencionado, o programa para de rodar encerrando com a mensagem "Não enviar 
-mensagem nesse horário"
+Por fim, se o horário fornecido não estiver dentro de nenhum intervalo mencionado, o programa para de rodar encerrando com a mensagem "Não enviar mensagem nesse horário"
 </p>
 <p style="text-align: justify;">
-Atrubua alguns valores para `h` e rode o código.
+Atrubua alguns valores para `h` e compile o código.
 </p>
 
 ```{r eighteen, exercise=TRUE}
@@ -374,35 +385,32 @@ saudacao
 Além da estrutura de controle `if-else`, existem outras estruturas como 
 `For loop` e `While loop`. 
 </p>
+
+### for
+
 <p style="text-align: justify;">
-`For loop` é muito indicada em casos que seja possível determinar exatamente o 
-número de vezes que deseja-se que o `loop` seja executado. 
+`For loop` é muito indicada em casos que seja possível determinar exatamente o número de vezes que deseja-se que o `loop` seja executado. 
 </p>
 <p style="text-align: justify;">
-No exemplo abaixo é feito o cálculo do crescimento de um investimento ao longo 
-de 12 meses, considerando uma taxa de juros simples.
+No exemplo abaixo é feito o cálculo do crescimento de um investimento ao longo de 12 meses, considerando uma taxa de juros simples.
 </p>
 <p style="text-align: justify;">
-Observe que o código começa definindo a taxa de juros, o números de meses e o 
-valor inicial.
+Observe que o código começa definindo a taxa de juros, o números de meses e o valor inicial.
 </p>
 <p style="text-align: justify;">
-O `loop` começa no segundo mês, levando em conta que o primeiro mês já é o valor inicial e não resquer cálculo.
+O `loop` começa no segundo mês, levando em conta que o primeiro mês já é o valor inicial e não requer cálculo.
 </p>
 <p style="text-align: justify;">
-A variável `valor` indica o valor do investimento para o próximo mês, 
-multiplicando pela taxa de juros mais 1.
+A variável `valor` indica o valor do investimento para o próximo mês, multiplicando pela taxa de juros mais 1.
 </p>
 <p style="text-align: justify;">
-A próxima linha imprime o número do mês atual e logo abaixo, seu respectivo 
-valor de investimento atualizado.
+A próxima linha imprime o número do mês atual e logo abaixo, seu respectivo valor de investimento atualizado.
 </p>
 <p style="text-align: justify;">
 Por fim, a fórmula calcula o valor do investimento pós 12 meses.
 </p>
 <p style="text-align: justify;">
-Você pode alterar o valor inicial e rodar o programa, ele irá calcular em cima 
-do seu valor desejado.
+Você pode alterar o valor inicial e rodar o programa, ele irá calcular em cima do valor indicado.
 </p>
 
 ```{r nineteen, exercise=TRUE}
@@ -418,6 +426,8 @@ for (i in 2:n_meses) {
 
 100 * (1 + tx)^11
 ```
+
+### while
 
 <p style="text-align: justify;">
 Diferente do `For loop`, o `While loop` é indicado quando você deseja repedir 
@@ -458,16 +468,13 @@ while (populacao_inicial <= limite) {
 É possivel criar funções no R. 
 </p>
 <p style="text-align: justify;">
-Note que o código começa definindo os parâmetros `a`, `b`, `c` de entrada da 
-função baskara.
+Note que o código começa definindo os parâmetros `a`, `b`, `c` de entrada da função denominada de baskara.
 </p>
 <p style="text-align: justify;">
-Posteriormente, calcula o discriminante da equação a partir de sua fórmula, e 
-assim armazena seu resultado na variável `delta`.
+Posteriormente, calcula o discriminante da equação a partir de sua fórmula, e assim armazena seu resultado na variável `delta`.
 </p>
 <p style="text-align: justify;">
-Só assim calcula as raízes, de acordo com a fórmula da equação quadrática. Na variável `root` fica salvo as raízes. A função `c(-1, 1)` cria um vetor que é 
-usado para o cálculo das raízes.
+Só assim calcula as raízes, de acordo com a fórmula da equação quadrática. Na variável `root` fica salvo as raízes. A função `c(-1, 1)` cria um vetor que é usado para o cálculo das raízes.
 </p>
 <p style="text-align: justify;">
 `return(root)` tem função de retornar as raízes.
@@ -475,17 +482,15 @@ usado para o cálculo das raízes.
 <p style="text-align: justify;">
 Defina você alguns valores para os parâmetros e rode o código.
 </p>
-<p style="text-align: justify;">
-Demonstrar como criar e chamar funções em R, explicando a sintaxe básica e a importância de modularizar o código.
-</p>
 
 ```{r twentyone, exercise=TRUE}
+#Definindo a funcao
 baskara <- function(a, b, c) {
     delta <- sqrt(b^2 - 4 * a * c)
     root <- (-b + c(-1, 1) * delta)/(2 * a)
     return(root)
 }
-
+#Valores a serem utilizados como entrada da funcao
 a <- -1
 b <- 1
 c <- 5
@@ -497,14 +502,10 @@ r
 ## Data Frames 
 
 <p style="text-align: justify;">
-Conheça agora uma estrutura de dados chamada data frame, ela é muito usada no R 
-para armazenar alguns dados tabulares. São constituídos por linhas e colunas  em 
-que cada coluna possui uma variável e as linhas incluem as observações.
+A estrutura de dados data.frame, é muito utilizada no R, seu objetivo é armazenar dados tabulares. São constituídos por linhas e colunas  em  que cada coluna possui uma variável e as linhas incluem as observações.
 </p>
 <p style="text-align: justify;">
-Abaixo, veja que a variável `dados`recebe o `data.frame` e cada coluna é criada 
-por um vetor. Ao final é so fazer o `print`dos dados para que imprima a tabela. 
-Rode o código e veja.
+Abaixo, veja que a variável `dados`recebe o `data.frame` e cada coluna é criada por um vetor. Ao final é so fazer o `print`dos dados para que imprima a tabela. Compile o código abaixo:
 </p>
 
 ```{r twentytwo, exercise=TRUE}
@@ -518,66 +519,45 @@ print(dados)
 
 ## Importação e Exportação de Dados 
 
-Demonstrar como importar dados de diferentes formatos (CSV, Excel, txt, Rds, etc.) para o R e exportar resultados.
-
 ```{r, out.width = "1000px", fig.align='center'} 
 knitr::include_graphics("images/Programacao1.gif")
 ```
 
-<p style="text-align: justify;">
-Vamos introduzir os principais pacotes para importar dados para o R. Mostraremos como importar dados de arquivos 
-de texto e de planilhas do excel. Antes é importante saber o ciclo da ciência de dados:
-</p>
-<img src="images/ciclo-ciencia-de-dados.png" style="display: block; margin-left: auto; margin-right: auto; width:80%;">
+No R, existem várias funções para importar dados, cada uma com suas vantagens. fread do pacote data.table é rápida para arquivos grandes, readr do pacote tidyverse oferece flexibilidade e desempenho, enquanto read.csv é uma opção básica para arquivos CSV. Outras funções incluem read.table, read_excel do pacote readxl para arquivos Excel e read_spss do pacote haven para arquivos SPSS. Escolha a função com base no tamanho do arquivo, formato e requisitos de processamento.
 
+Suponha que exista na pasta principal de seu script alguns bancos de dados de diversos formatos, todos com o nome "dados.formato", dessa forma, você poderá utilizar os seguintes comandos para ler seus dados:
 
-<p style="text-align: justify;">
-Grande parte dos dados que utilizaremos em nossas análises estarão salvos em planilhas eletrônicas
-como Excel, LibreOffice e outros. Embora seja possível importar arquivos com extensão .xls e .xlsx,
-recomendo que seja utilizado sempre a extensão genérica .csv (comma-separeted value) ou . txt. Todo arquivo
-do tipo csv possui dois elementos básicos que podem influenciar na importação:
-</p>
-
- - o separador decimal
- 
- - a tabulação (ou separador de colunas)
- 
-
- 
-<p style="text-align: justify;"> 
-No formato regional brasileiro, o separador decimal é a vírgula "(,)" e o separador de coluna é o ponto
-e vírgula "(;)". Já no formato americano, utiliza-se o ponto "(.)" como separador decimal e a vírgula "(,)"
-como separador de colunas. Durante a importação de uma planilha eletrônica, pode ser necessário informar qual o separador
-decimal e qual o separador de colunas utilizados no arquivo, para que a leitura dos dados pelo R
-ocorra sem problemas.
-</p>
-
-
-Dois comandos podem ser utilizados para importar os dados:
-
-`read.csv(arquivo, sep=..., dec=...)`
-
-`read.table(arquivo, sep=..., dec=...)`
-
-
-<p style="text-align: justify;">
-Ambos comandos possuem os parâmetros que definem o separador de colunas e o separador decimal:
-`sep` para separador de colunas e `dec` para separador decimal.
-</p>
-```{r,echo=TRUE}
-rm(list=ls())
-if(!is.null(dev.list())) dev.off()
-getwd()#Visualizar diretorio de trabalho
-#setwd("E:/Documentos/GitHub/MAF105/maf105.github.io/Aulas_MAF105/Curso_R")#Modificar diretorio de trabalho
-cat("\014")
 ```
+library(data.table)
+dados <- fread("dados.csv")
+library(readr)
+dados <- read_csv("dados.csv")
+dados <- read.csv("dados.csv")
+dados <- read.table("dados.txt", header = TRUE)
+library(readxl)
+dados <- read_excel("dados.xlsx")
+library(haven)
+dados <- read_spss("dados.sav")
+dados <- readRDS("dados.Rds")
+```
+
+No contexto de importação de dados no R, as opções `encoding` e `dec` são importantes para lidar com problemas de codificação de caracteres e de separadores decimais, respectivamente.
+
+- **`encoding`**: Esta opção especifica o esquema de codificação utilizado no arquivo de dados. Alguns arquivos podem usar codificações diferentes, como UTF-8, Latin-1, entre outras. É importante selecionar a codificação correta para garantir que os caracteres sejam interpretados corretamente pelo R. Por exemplo, se o arquivo estiver codificado em UTF-8, você pode especificar `encoding = "UTF-8"` na função de importação.
+
+- **`dec`**: Esta opção especifica o separador decimal utilizado no arquivo de dados. Em alguns países, o ponto (.) é usado como separador decimal, enquanto em outros países, a vírgula (,) é utilizada. Se o arquivo de dados usar um separador decimal diferente do padrão do seu sistema, você pode usar a opção `dec` para especificar o separador correto. Por exemplo, se os números no arquivo usarem vírgula como separador decimal, você pode especificar `dec = ","` na função de importação.
+
+Ambas as opções são úteis para garantir que os dados sejam importados corretamente e que as operações subsequentes sejam realizadas de forma precisa e sem erros de interpretação.
+
+ - Vejamos alguns exemplos práticos:
+
 
 
 ```{r,echo=TRUE}
 #Formato .csv e .txt - Sem a necessidade de pacote
 dados1 <- read.table("Dados/CompanhiaMB.csv",dec = ",")#*Lembre-se do sep = ";"
 str(dados1)
-dados1 <- read.table("Dados/CompanhiaMB.csv",dec = ",",sep = ";")
+dados1 <- read.table("Dados/CompanhiaMB.csv",dec = ",", sep = ";")
 str(dados1)
 ```
 
@@ -702,7 +682,77 @@ summary(dados4)
 summary(dados5)
 summary(dados6)
 ```
- Help me!
+
+
+## Manipulação de Dados 
+
+<p style="text-align: justify;">
+ciclo da ciência de dados:
+</p>
+<img src="images/ciclo-ciencia-de-dados.png" style="display: block; margin-left: auto; margin-right: auto; width:80%;">
+
+O pacote `tidyverse` é uma coleção de pacotes do R projetados para facilitar o trabalho com dados de forma eficiente e consistente. Ele inclui várias funções e pacotes que são amplamente utilizados para manipulação, visualização e análise de dados. Aqui estão alguns dos principais pacotes incluídos no `tidyverse` e suas principais funções:
+
+- **`ggplot2`**: Este pacote é usado para criação de gráficos elegantes e personalizáveis. Ele segue a filosofia de "gramática dos gráficos", permitindo a criação de visualizações complexas com relativa facilidade. Exemplo de uso:
+
+```
+library(ggplot2)
+
+# Criando um gráfico de dispersão simples
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+  geom_point()
+```
+
+1 - `dplyr:` Este pacote oferece uma variedade de funções para manipulação de dados de forma eficiente. Ele inclui verbos como filter, mutate, summarize e arrange para filtrar, modificar, resumir e ordenar conjuntos de dados. Exemplo de uso:
+
+```
+library(dplyr)
+
+# Filtrando dados para incluir apenas carros com cilindradas maiores que 4
+filtered_data <- filter(mpg, displ > 4)
+
+```
+
+
+2 - `tidyr:` Este pacote fornece funções para trabalhar com dados em formato "tall" (longo) e "wide" (largo), facilitando a transformação entre esses formatos. As funções pivot_longer e pivot_wider são particularmente úteis para essa finalidade. Exemplo de uso:
+
+```
+library(tidyr)
+
+# Transformando dados de formato largo para longo
+long_data <- pivot_longer(wide_data, cols = c(var1, var2), names_to = "variavel", values_to = "valor")
+
+```
+
+`readr:` Este pacote é usado para importar dados de diferentes formatos de arquivo, como CSV, Excel e texto delimitado. Ele fornece funções como read_csv, read_excel e read_delim para essa finalidade. Exemplo de uso:
+
+```
+library(readr)
+
+# Importando dados de um arquivo CSV
+data <- read_csv("dados.csv")
+
+```
+
+`purrr:` Fornece um conjunto de ferramentas para trabalhar com estruturas de dados em R, especialmente listas e vetores. Ele inclui funções como map, map2 e pmap para aplicar funções a elementos de listas ou vetores de forma mais eficiente.
+
+`tibble:` Oferece uma versão moderna e eficiente do data.frame do R. Ele fornece funções para criar e manipular tibbles de forma fácil e consistente, incluindo as_tibble, tibble() e glimpse().
+
+`stringr:` É um pacote para manipulação de strings no R. Ele fornece funções consistentes e intuitivas para operações comuns em strings, como str_length, str_sub e str_detect.
+
+`forcats:` Este pacote é usado para trabalhar com variáveis categóricas (fatores) no R. Ele oferece funções para manipular fatores de forma eficiente, incluindo fct_reorder, fct_rev e fct_infreq.
+
+`lubridate:` É uma biblioteca popular no R usada para manipulação de datas e horas. Ele fornece funções simples e intuitivas para trabalhar com datas, como ymd() para converter datas no formato ano-mês-dia, mdy() para converter datas no formato mês-dia-ano, entre outras. 
+
+## Visualização de Dados 
+
+Apresentar técnicas básicas de visualização de dados usando pacotes como ggplot2, criar gráficos simples e informativos.
+
+## Pacotes e Comunidade 
+
+Introduza a vasta coleção de pacotes disponíveis em R e ensinar como instalar, carregar e usar pacotes para estender as funcionalidades do R. Incentivar a participação em comunidades online, como o Stack Overflow e o RStudio Community, para obter suporte e compartilhar conhecimentos.
+
+Help me!
 
 ```{r, out.width = "1000px", fig.align='center'} 
 knitr::include_graphics("images/helpMe.gif")
@@ -729,19 +779,7 @@ Você também pode pedir ajuda a um colega!!!
 --
 <img src="images/helpMe3.gif" height="500" width="500">
 
-## Manipulação de Dados 
-
-Ensinar funções básicas para manipulação de dados, como subsetting, filtering, sorting e merging. Além de funções do pacote tidyverse!
-
-## Visualização de Dados 
-
-Apresentar técnicas básicas de visualização de dados usando pacotes como ggplot2, criar gráficos simples e informativos.
-
-## Pacotes e Comunidade 
-
-Introduza a vasta coleção de pacotes disponíveis em R e ensinar como instalar, carregar e usar pacotes para estender as funcionalidades do R. Incentivar a participação em comunidades online, como o Stack Overflow e o RStudio Community, para obter suporte e compartilhar conhecimentos.
-
-# Apostila de EST 106
+## Apostila de EST 106
 
 <!--
 Aqui vamos replicar capítulo à capítulo as atividades da apostila, inclusive os exercícios!
