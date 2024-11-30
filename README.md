@@ -1,2 +1,2 @@
 # ApostilaInterativa
-Apostila Interativa de EST 106
+Criação de uma apostila Interativa sobre Estatística Básica

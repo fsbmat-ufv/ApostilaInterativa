@@ -27,7 +27,17 @@ em {
     border-color: #dddddd;
 }
 
+.topics {
+  width: 900px;
+}
+
+.topicsContainer {
+  min-width: 1px;
+  width: 5%;
+}
+
 .topicsList .topic {
+  width: 100%;
   line-height: 40px;
   font-size: 15px;
   padding-left: 10px;
@@ -42,6 +52,7 @@ em {
   -webkit-transition-duration: 0.25s;
   transition-duration: 0.25s;
 }
+
 
 .topicsList .topic.current {
   background-color: skyblue;
@@ -97,4 +108,9 @@ h5 {
   color: skyblue;
   background-color: white;
   display: inline-block;
+}
+
+#myImagePage img {
+  width: 600px;
+  height: 900px;
 }
